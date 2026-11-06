@@ -40,7 +40,8 @@ export async function sendContactMessage({ name, email, message }: ContactMessag
   }
 
   try {
-    await send(serviceId, templateId, { name, email, message }, { publicKey });
+    const time = new Date().toLocaleString("en-GB", { dateStyle: "medium", timeStyle: "short" });
+    await send(serviceId, templateId, { name, email, message, time }, { publicKey });
   } catch (error) {
     throw describeFailure(error);
   }

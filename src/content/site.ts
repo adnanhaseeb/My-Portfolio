@@ -11,7 +11,7 @@ export const site: SiteConfig = {
   githubUrl: null,
   cvPath: "/cv/Adnan_Haseeb_CV.pdf",
   cvLabel: "Download CV",
-  siteUrl: process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000",
+  siteUrl: process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000",
   description:
     "Adnan Haseeb is a software engineer building Python backends, LLM document workflows and integrations, with deterministic validation around every AI output.",
   availability: "Open to AI & backend roles",
