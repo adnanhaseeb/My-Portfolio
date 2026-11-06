@@ -18,7 +18,7 @@ A single-page personal portfolio that presents Adnan Haseeb as a Python backend 
 
 An original design in the style of modern AI SaaS landing pages (reference feel: the Orbit AI SaaS kit). Nothing is copied from that product: no code, assets, copy or exact layouts.
 
-- **Font:** Inter, loaded with `next/font`.
+- **Fonts (next/font):** Inter for body text, Instrument Sans for headings, JetBrains Mono for data and code-like labels.
 - **Light theme:** white background, soft blurred violet and blue glow shapes behind the hero, zinc text.
 - **Dark theme:** near-black background (`zinc-950`), the same glows at lower opacity.
 - **Accent:** a blue-to-violet gradient (`#2563eb` → `#7c3aed`) used on headline keywords, the primary button and focus rings.
@@ -96,7 +96,8 @@ Single route `/` with anchor sections. Nav links: About, Experience, Projects, S
 
 ### 6.2 Hero (`sections/Hero`, id `about`)
 - Small pill badge with avatar: "Open to AI & backend roles".
-- Headline: "Building **reliable AI systems** that reach production" (bold part in gradient).
+- Headline: "AI systems that are **checked** before they ship" (bold part in gradient).
+- Signature visual: an animated validation trace card (sample invoice, LLM extraction, three deterministic checks, one flag routed to review), labelled as an example.
 - Subtext: "Software engineer working on Python backends, LLM document workflows and integrations, with validation and tests around every AI output."
 - Buttons: "View projects" (primary, scrolls to `#projects`), "Download CV" (outline).
 - Stat strip, 4 StatCards, figures taken verbatim from the CV:

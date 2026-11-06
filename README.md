@@ -1,4 +1,4 @@
-# Adnan Haseeb — Portfolio
+# Adnan Haseeb | Portfolio
 
 Personal portfolio of **Adnan Haseeb**, Software Engineer focused on Python backend systems, FastAPI, and AI & LLM applications.
 
