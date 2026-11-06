@@ -21,7 +21,7 @@ export function Contact() {
       <Container>
         <Reveal>
           <div className="rounded-3xl bg-gradient-brand p-px shadow-sm">
-            <div className="relative overflow-hidden rounded-[calc(1.5rem-1px)] bg-card">
+            <div className="relative overflow-hidden rounded-[calc(var(--radius-3xl)-1px)] bg-card">
               <div aria-hidden="true" className="pointer-events-none absolute inset-0 bg-glow" />
 
               <div className="relative grid gap-12 p-6 sm:p-10 lg:grid-cols-[minmax(0,5fr)_minmax(0,6fr)] lg:gap-0 lg:p-14">
