@@ -6,11 +6,12 @@ type SectionHeadingProps = {
   eyebrow: string;
   title: ReactNode;
   description?: string;
+  id?: string;
   align?: "center" | "left";
   className?: string;
 };
 
-export function SectionHeading({ eyebrow, title, description, align = "center", className }: SectionHeadingProps) {
+export function SectionHeading({ eyebrow, title, description, id, align = "center", className }: SectionHeadingProps) {
   return (
     <div
       className={cn(
@@ -22,7 +23,9 @@ export function SectionHeading({ eyebrow, title, description, align = "center", 
       <span className="inline-flex items-center rounded-full border bg-card px-3 py-1 text-xs font-medium text-muted-foreground shadow-xs">
         {eyebrow}
       </span>
-      <h2 className="text-3xl font-semibold sm:text-4xl md:text-5xl">{title}</h2>
+      <h2 id={id} className="text-3xl font-semibold sm:text-4xl md:text-5xl">
+        {title}
+      </h2>
       {description ? <p className="text-base text-muted-foreground sm:text-lg">{description}</p> : null}
     </div>
   );

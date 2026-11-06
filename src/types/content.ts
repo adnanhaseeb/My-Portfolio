@@ -13,10 +13,17 @@ export type SiteConfig = {
   linkedinUrl: string;
   githubUrl: string | null;
   cvPath: string;
+  cvLabel: string;
   siteUrl: string;
   description: string;
   availability: string;
   nav: NavLink[];
+};
+
+export type SectionCopy = {
+  eyebrow: string;
+  title: string;
+  description: string;
 };
 
 export type Stat = {

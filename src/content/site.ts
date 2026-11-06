@@ -10,6 +10,7 @@ export const site: SiteConfig = {
   linkedinUrl: "https://www.linkedin.com/in/adnan-h-a1a4bb22a",
   githubUrl: null,
   cvPath: "/cv/Adnan_Haseeb_CV.pdf",
+  cvLabel: "Download CV",
   siteUrl: process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000",
   description:
     "Adnan Haseeb is a software engineer building Python backends, LLM document workflows and integrations, with deterministic validation around every AI output.",
