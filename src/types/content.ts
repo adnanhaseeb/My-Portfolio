@@ -95,12 +95,32 @@ export type EducationItem = {
   detail: string;
 };
 
+export type ProjectImage = {
+  src: string;
+  alt: string;
+  width: number;
+  height: number;
+};
+
+export type ProjectCallout = {
+  value: string;
+  label: string;
+};
+
+export type ProjectScreenshot = ProjectImage & {
+  kind: "image";
+  url?: string;
+  callouts?: ProjectCallout[];
+  inset?: ProjectImage & { caption: string };
+};
+
 export type ProjectVisual =
   | { kind: "illustration"; id: "brkz-flow" | "clinfocus-pipeline" }
-  | { kind: "image"; src: string; alt: string };
+  | ProjectScreenshot;
 
 export type Project = {
   slug: string;
+  featured?: boolean;
   title: string;
   context: string;
   problem: string;

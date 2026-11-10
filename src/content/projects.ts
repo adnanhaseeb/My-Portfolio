@@ -2,6 +2,41 @@ import type { Project } from "@/types/content";
 
 export const projects: Project[] = [
   {
+    slug: "traffiqco",
+    featured: true,
+    title: "Traffiqco",
+    context: "Freelance client project · AI traffic management planning · New Zealand",
+    problem:
+      "Every job on a New Zealand road needs a Temporary Traffic Management Plan. Planners research the site, draw diagrams with correctly spaced cones, tapers and signs, and write risk registers by hand, and small spacing mistakes are expensive to find late.",
+    built: [
+      "A six-step Next.js app that takes a planner from a work area drawn on an aerial map to a print-ready PDF plan.",
+      "A LangGraph agent pipeline with Qdrant retrieval over the NZGTTM and CoPTTM standards that picks a treatment for each stage from measured road geometry.",
+      "A deterministic diagram engine that sizes tapers, spaces cones and places signs to cited rules, plus a layout editor where planners drag devices and redraw.",
+    ],
+    outcome:
+      "A complete site-to-submission workflow in one app, with every cone, taper and lane-width decision traceable to a standard, backed by about 2,600 backend and frontend tests.",
+    stack: ["Next.js", "TypeScript", "FastAPI", "PostgreSQL", "LangGraph", "Qdrant", "OpenAI", "Shapely", "OSMnx", "Leaflet", "Konva"],
+    visual: {
+      kind: "image",
+      src: "/images/projects/traffiqco-editor.webp",
+      alt: "Traffiqco layout editor showing an AI-drawn lane shift diagram with cones, tapers and signs on aerial imagery",
+      width: 1600,
+      height: 900,
+      url: "app.traffiqco.com",
+      callouts: [
+        { value: "NZGTTM", label: "Every taper and cone rule cited" },
+        { value: "~2,600", label: "Backend and frontend tests" },
+      ],
+      inset: {
+        src: "/images/projects/traffiqco-download.webp",
+        alt: "Traffiqco download step listing the generated diagram sheets included in the PDF plan",
+        width: 520,
+        height: 457,
+        caption: "Print-ready PDF pack",
+      },
+    },
+  },
+  {
     slug: "brkz-supplier-finance",
     title: "Supplier finance automation",
     context: "BRKZ · Saudi B2B marketplace · at StechAI",
@@ -50,6 +85,13 @@ export const projects: Project[] = [
       kind: "image",
       src: "/images/projects/supercrypt.webp",
       alt: "SuperCrypt landing page: Advanced AI trading solutions",
+      width: 1600,
+      height: 730,
+      url: "supercrypt",
+      callouts: [
+        { value: "ML", label: "Crypto price prediction" },
+        { value: "Docker", label: "Containerised deployment" },
+      ],
     },
   },
 ];

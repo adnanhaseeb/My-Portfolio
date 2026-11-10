@@ -16,7 +16,7 @@ export const sectionCopy = {
     eyebrow: "Projects",
     title: "Selected work",
     description:
-      "Three systems in detail: what was breaking, what I built to fix it, and what changed once it shipped.",
+      "Four systems in detail: what was breaking, what I built to fix it, and what changed once it shipped.",
   },
   skills: {
     eyebrow: "Skills",
