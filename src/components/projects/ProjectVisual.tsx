@@ -1,18 +1,23 @@
 import { BrkzFlow } from "@/components/illustrations/BrkzFlow";
 import { ClinFocusPipeline } from "@/components/illustrations/ClinFocusPipeline";
+import { ProjectGallery } from "@/components/projects/ProjectGallery";
 import { ProjectScreenshotShowcase } from "@/components/projects/ProjectScreenshotShowcase";
 import { cn } from "@/lib/utils";
 import type { ProjectVisual as ProjectVisualData } from "@/types/content";
 
 type ProjectVisualProps = {
   visual: ProjectVisualData;
-  featured?: boolean;
+  label: string;
   className?: string;
 };
 
-export function ProjectVisual({ visual, featured = false, className }: ProjectVisualProps) {
+export function ProjectVisual({ visual, label, className }: ProjectVisualProps) {
+  if (visual.kind === "gallery") {
+    return <ProjectGallery gallery={visual} label={label} className={className} />;
+  }
+
   if (visual.kind === "image") {
-    return <ProjectScreenshotShowcase screenshot={visual} featured={featured} className={className} />;
+    return <ProjectScreenshotShowcase screenshot={visual} className={className} />;
   }
 
   const Illustration = visual.id === "brkz-flow" ? BrkzFlow : ClinFocusPipeline;

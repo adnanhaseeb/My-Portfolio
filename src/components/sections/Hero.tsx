@@ -4,7 +4,6 @@ import { ArrowRight, Download } from "lucide-react";
 import { motion, useReducedMotion, type Variants } from "motion/react";
 import Image from "next/image";
 
-import { ValidationTrace } from "@/components/illustrations/ValidationTrace";
 import { Container } from "@/components/shared/Container";
 import { GradientText } from "@/components/shared/GradientText";
 import { StatCard } from "@/components/shared/StatCard";
@@ -99,17 +98,9 @@ export function Hero() {
             </Button>
           </motion.div>
 
-          <motion.div variants={rise} className="relative mt-14 w-full max-w-3xl sm:mt-16">
-            <div
-              aria-hidden
-              className="pointer-events-none absolute inset-x-10 -top-6 -bottom-6 -z-10 rounded-full bg-gradient-brand opacity-15 blur-3xl dark:opacity-20"
-            />
-            <ValidationTrace />
-          </motion.div>
-
           <motion.dl
             variants={rise}
-            className="mt-12 grid w-full max-w-5xl grid-cols-2 gap-3 sm:mt-14 lg:grid-cols-4"
+            className="mt-16 grid w-full max-w-5xl grid-cols-2 gap-3 sm:mt-20 lg:grid-cols-4"
           >
             {hero.stats.map((stat) => (
               <StatCard key={stat.label} value={stat.value} label={stat.label} />

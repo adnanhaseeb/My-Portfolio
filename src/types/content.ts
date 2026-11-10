@@ -41,22 +41,6 @@ export type HeroContent = {
   stats: Stat[];
 };
 
-export type TraceCheckStatus = "pass" | "flag";
-
-export type TraceCheck = {
-  label: string;
-  detail: string;
-  status: TraceCheckStatus;
-};
-
-export type ValidationTrace = {
-  documentLabel: string;
-  supplier: string;
-  extractedFields: { key: string; value: string }[];
-  checks: TraceCheck[];
-  outcome: string;
-};
-
 export type ServiceIcon =
   | "file-scan"
   | "git-compare"
@@ -102,21 +86,23 @@ export type ProjectImage = {
   height: number;
 };
 
-export type ProjectCallout = {
-  value: string;
-  label: string;
-};
-
 export type ProjectScreenshot = ProjectImage & {
   kind: "image";
-  url?: string;
-  callouts?: ProjectCallout[];
-  inset?: ProjectImage & { caption: string };
+};
+
+export type ProjectGallerySlide = ProjectImage & {
+  thumb: string;
+};
+
+export type ProjectGallery = {
+  kind: "gallery";
+  slides: ProjectGallerySlide[];
 };
 
 export type ProjectVisual =
   | { kind: "illustration"; id: "brkz-flow" | "clinfocus-pipeline" }
-  | ProjectScreenshot;
+  | ProjectScreenshot
+  | ProjectGallery;
 
 export type Project = {
   slug: string;
