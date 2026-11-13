@@ -12,16 +12,12 @@ type RevealProps = {
 
 /**
  * Fades and lifts its children into place the first time they scroll into view.
- * Renders statically when the visitor prefers reduced motion.
+ * Appears instantly, without movement, when the visitor prefers reduced motion. The same element
+ * is rendered either way so the server markup and the hydrated markup always match.
  */
 export function Reveal({ children, delay = 0, className, as = "div" }: RevealProps) {
   const reduceMotion = useReducedMotion();
   const Component = motion[as];
-
-  if (reduceMotion) {
-    const Static = as;
-    return <Static className={className}>{children}</Static>;
-  }
 
   return (
     <Component
@@ -29,7 +25,7 @@ export function Reveal({ children, delay = 0, className, as = "div" }: RevealPro
       initial={{ opacity: 0, y: 16 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-10% 0px" }}
-      transition={{ duration: 0.5, delay, ease: [0.22, 1, 0.36, 1] }}
+      transition={reduceMotion ? { duration: 0 } : { duration: 0.5, delay, ease: [0.22, 1, 0.36, 1] }}
     >
       {children}
     </Component>

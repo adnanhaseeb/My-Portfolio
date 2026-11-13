@@ -123,4 +123,32 @@ export type ContactContent = {
   successMessage: string;
   errorMessage: string;
   missingConfigMessage: string;
+  nextStepsTitle: string;
+  nextSteps: ProcessStep[];
+};
+
+export type AboutFact = {
+  icon: "map-pin" | "briefcase" | "laptop" | "graduation-cap";
+  label: string;
+  value: string;
+};
+
+export type AboutContent = {
+  eyebrow: string;
+  title: string;
+  paragraphs: string[];
+  facts: AboutFact[];
+  stack: string[];
+};
+
+export type ProcessStep = {
+  title: string;
+  description: string;
+};
+
+export type CallToActionContent = {
+  title: string;
+  description: string;
+  primaryLabel: string;
+  primaryHref: `/${string}`;
 };

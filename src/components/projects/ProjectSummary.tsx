@@ -10,7 +10,7 @@ export function ProjectSummary({ project, headingId }: ProjectSummaryProps) {
     <div className="flex min-w-0 flex-col gap-6">
       <div className="flex flex-col gap-2">
         <p className="font-mono text-xs text-muted-foreground">{project.context}</p>
-        <h2 id={headingId} className="text-2xl font-semibold sm:text-3xl">
+        <h2 id={headingId} className="scroll-mt-28 text-2xl font-semibold sm:text-3xl">
           {project.title}
         </h2>
       </div>

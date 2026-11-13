@@ -79,6 +79,30 @@ export function Contact() {
             </div>
           </div>
         </Reveal>
+
+        <div className="mt-16 flex flex-col gap-8 md:mt-20">
+          <Reveal>
+            <h2 className="text-center text-2xl font-semibold sm:text-3xl">{contact.nextStepsTitle}</h2>
+          </Reveal>
+          <ol className="grid gap-4 md:grid-cols-3 md:gap-5">
+            {contact.nextSteps.map((step, index) => (
+              <Reveal
+                key={step.title}
+                as="li"
+                delay={index * 0.07}
+                className="flex h-full flex-col gap-4 rounded-2xl border bg-card p-6"
+              >
+                <span className="grid size-10 place-items-center rounded-full border bg-surface font-mono text-sm font-medium text-brand-violet">
+                  {index + 1}
+                </span>
+                <div className="flex flex-col gap-1.5">
+                  <h3 className="text-base font-semibold">{step.title}</h3>
+                  <p className="text-sm leading-relaxed text-pretty text-muted-foreground">{step.description}</p>
+                </div>
+              </Reveal>
+            ))}
+          </ol>
+        </div>
       </Container>
     </section>
   );

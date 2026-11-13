@@ -18,6 +18,17 @@ export const sectionCopy = {
     description:
       "Four systems in detail: what was breaking, what I built to fix it, and what changed once it shipped.",
   },
+  work: {
+    eyebrow: "Selected work",
+    title: "Recent projects",
+    description: "A freelance product built end to end, two client systems at StechAI, and a personal ML project.",
+  },
+  process: {
+    eyebrow: "How I work",
+    title: "From document to decision",
+    description:
+      "The same five steps sit behind every AI workflow I build, so a model's mistake is caught long before anyone acts on it.",
+  },
   skills: {
     eyebrow: "Skills",
     title: "Tools I work with",
