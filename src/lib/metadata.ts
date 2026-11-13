@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 
 import { site } from "@/content/site";
+import type { NavLink } from "@/types/content";
 
 const keywords = [
   site.name,
@@ -26,6 +27,21 @@ const keywords = [
   "Freelance developer",
   site.location,
 ];
+
+/**
+ * Builds the title, description and canonical URL for one of the routed pages in the site navigation.
+ */
+export function pageMetadata(href: NavLink["href"]): Metadata {
+  const page = site.nav.find((link) => link.href === href);
+  if (!page) throw new Error(`No navigation entry for ${href}`);
+
+  return {
+    title: page.title,
+    description: page.description,
+    alternates: { canonical: page.href },
+    openGraph: { url: page.href, title: `${page.title} | ${site.name}`, description: page.description },
+  };
+}
 
 export const siteMetadata: Metadata = {
   metadataBase: new URL(site.siteUrl),

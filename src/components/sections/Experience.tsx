@@ -9,9 +9,10 @@ export function Experience() {
   const heading = sectionCopy.experience;
 
   return (
-    <section id="experience" aria-labelledby="experience-heading" className="py-24 md:py-32">
+    <section id="experience" aria-labelledby="experience-heading" className="pt-32 pb-24 md:pt-40 md:pb-32">
       <Container>
         <SectionHeading
+          as="h1"
           id="experience-heading"
           eyebrow={heading.eyebrow}
           title={heading.title}

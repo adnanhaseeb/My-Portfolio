@@ -19,7 +19,7 @@ export function ExperienceProjectBlock({ project, className }: ExperienceProject
   return (
     <article className={cn("rounded-2xl border bg-card p-5 shadow-xs sm:p-7", className)}>
       <header className="flex flex-col gap-1">
-        <h4 className="font-heading text-lg font-semibold tracking-tight sm:text-xl">{project.name}</h4>
+        <h3 className="font-heading text-lg font-semibold tracking-tight sm:text-xl">{project.name}</h3>
         <p className="text-sm text-muted-foreground">{project.context}</p>
       </header>
 

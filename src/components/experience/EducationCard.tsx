@@ -21,7 +21,7 @@ export function EducationCard({ education }: EducationCardProps) {
         <div className="hidden lg:block" />
         <div className="rounded-2xl border bg-card p-5 shadow-xs sm:p-7">
           <p className="font-mono text-xs text-muted-foreground">{education.period}</p>
-          <h3 className="mt-2 text-xl font-semibold sm:text-2xl">{education.degree}</h3>
+          <h2 className="mt-2 text-xl font-semibold sm:text-2xl">{education.degree}</h2>
           <p className="mt-1 text-base text-foreground/90">{education.institution}</p>
           <p className="mt-4 inline-flex rounded-full border bg-surface px-2.5 py-0.5 font-mono text-xs text-muted-foreground">
             {education.detail}

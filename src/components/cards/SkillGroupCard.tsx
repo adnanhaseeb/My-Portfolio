@@ -23,9 +23,9 @@ export function SkillGroupCard({ group, featured = false, className }: SkillGrou
     >
       {featured ? <span aria-hidden="true" className="bg-gradient-brand absolute inset-x-0 top-0 h-0.5" /> : null}
       <header className="flex items-baseline justify-between gap-4">
-        <h3 id={headingId} className="font-heading text-lg font-semibold text-balance">
+        <h2 id={headingId} className="font-heading text-lg font-semibold text-balance">
           {group.title}
-        </h3>
+        </h2>
         <span className="shrink-0 font-mono text-xs text-muted-foreground tabular-nums">{countLabel}</span>
       </header>
       <ul className="mt-5 flex flex-wrap gap-2">

@@ -3,10 +3,10 @@
 import { ArrowRight, Download } from "lucide-react";
 import { motion, useReducedMotion, type Variants } from "motion/react";
 import Image from "next/image";
+import Link from "next/link";
 
 import { Container } from "@/components/shared/Container";
 import { GradientText } from "@/components/shared/GradientText";
-import { StatCard } from "@/components/shared/StatCard";
 import { Button } from "@/components/ui/button";
 import { hero } from "@/content/profile";
 import { site } from "@/content/site";
@@ -32,7 +32,7 @@ export function Hero() {
   const reduceMotion = useReducedMotion();
 
   return (
-    <section id="about" className="relative isolate overflow-hidden pt-32 pb-20 sm:pt-36 sm:pb-28">
+    <section className="relative isolate overflow-hidden pt-32 pb-20 sm:pt-36 sm:pb-28">
       <div aria-hidden className="pointer-events-none absolute inset-0 -z-10 bg-glow" />
       <div
         aria-hidden
@@ -81,14 +81,14 @@ export function Hero() {
 
           <motion.div variants={rise} className="mt-9 flex w-full flex-col gap-3 sm:w-auto sm:flex-row">
             <Button asChild size="lg" className={ctaClassName}>
-              <a href="#projects">
+              <Link href="/projects">
                 {hero.primaryCta}
                 <ArrowRight
                   data-icon="inline-end"
                   aria-hidden
                   className="transition-transform duration-200 ease-out group-hover/button:translate-x-0.5 motion-reduce:transition-none"
                 />
-              </a>
+              </Link>
             </Button>
             <Button asChild size="lg" variant="outline" className={ctaClassName}>
               <a href={site.cvPath} download>
@@ -97,15 +97,6 @@ export function Hero() {
               </a>
             </Button>
           </motion.div>
-
-          <motion.dl
-            variants={rise}
-            className="mt-16 grid w-full max-w-5xl grid-cols-2 gap-3 sm:mt-20 lg:grid-cols-4"
-          >
-            {hero.stats.map((stat) => (
-              <StatCard key={stat.label} value={stat.value} label={stat.label} />
-            ))}
-          </motion.dl>
         </motion.div>
       </Container>
     </section>

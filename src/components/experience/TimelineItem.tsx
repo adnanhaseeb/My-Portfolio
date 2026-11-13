@@ -19,7 +19,7 @@ export function TimelineItem({ item }: TimelineItemProps) {
       <div className="flex flex-col gap-6 lg:grid lg:grid-cols-[15rem_minmax(0,1fr)] lg:gap-10">
         <Reveal className="flex flex-col gap-2 self-start lg:sticky lg:top-28">
           <p className="font-mono text-xs text-muted-foreground">{item.period}</p>
-          <h3 className="text-xl font-semibold sm:text-2xl">{item.role}</h3>
+          <h2 className="text-xl font-semibold sm:text-2xl">{item.role}</h2>
           <p className="text-base font-medium text-foreground/90">{item.company}</p>
           <p className="font-mono text-xs text-muted-foreground">{item.location}</p>
         </Reveal>

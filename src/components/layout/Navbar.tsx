@@ -2,20 +2,19 @@
 
 import { Download } from "lucide-react";
 import { motion, useReducedMotion } from "motion/react";
+import Link from "next/link";
 
 import { MobileMenu } from "@/components/layout/MobileMenu";
 import { ThemeToggle } from "@/components/shared/ThemeToggle";
 import { Button } from "@/components/ui/button";
 import { site } from "@/content/site";
-import { useActiveSection } from "@/hooks/useActiveSection";
+import { useActivePath } from "@/hooks/useActivePath";
 import { useScrolled } from "@/hooks/useScrolled";
 import { cn } from "@/lib/utils";
 
-const sectionIds = site.nav.map((link) => link.href.slice(1));
-
 export function Navbar() {
   const scrolled = useScrolled(10);
-  const activeId = useActiveSection(sectionIds);
+  const isActive = useActivePath();
   const reduceMotion = useReducedMotion();
 
   return (
@@ -28,8 +27,8 @@ export function Navbar() {
             : "border-transparent bg-transparent shadow-none",
         )}
       >
-        <a
-          href="#about"
+        <Link
+          href="/"
           className="flex min-w-0 items-center gap-2.5 rounded-full py-1 pr-2 outline-none focus-visible:ring-3 focus-visible:ring-ring/50"
         >
           <span
@@ -41,15 +40,15 @@ export function Navbar() {
           <span className="truncate font-heading md:max-lg:sr-only text-[0.95rem] font-semibold tracking-tight text-foreground">
             {site.name}
           </span>
-        </a>
+        </Link>
 
         <nav aria-label="Primary" className="hidden md:block">
           <ul className="flex items-center gap-0.5 rounded-full border border-border bg-surface/70 p-1">
             {site.nav.map((link) => {
-              const isActive = activeId === link.href.slice(1);
+              const active = isActive(link.href);
               return (
                 <li key={link.href} className="relative">
-                  {isActive ? (
+                  {active ? (
                     <motion.span
                       layoutId="navbar-active-pill"
                       aria-hidden
@@ -59,16 +58,16 @@ export function Navbar() {
                       }
                     />
                   ) : null}
-                  <a
+                  <Link
                     href={link.href}
-                    aria-current={isActive ? "true" : undefined}
+                    aria-current={active ? "page" : undefined}
                     className={cn(
                       "relative block rounded-full px-3.5 py-1.5 text-sm font-medium outline-none transition-colors focus-visible:ring-3 focus-visible:ring-ring/50 lg:px-4",
-                      isActive ? "text-foreground" : "text-muted-foreground hover:text-foreground",
+                      active ? "text-foreground" : "text-muted-foreground hover:text-foreground",
                     )}
                   >
                     {link.label}
-                  </a>
+                  </Link>
                 </li>
               );
             })}
@@ -83,7 +82,7 @@ export function Navbar() {
               {site.cvLabel}
             </a>
           </Button>
-          <MobileMenu activeId={activeId} />
+          <MobileMenu />
         </div>
       </div>
     </header>

@@ -17,7 +17,7 @@ export function Contact() {
   const linkedinHandle = site.linkedinUrl.replace(/^https?:\/\/(www\.)?/, "").replace(/\/$/, "");
 
   return (
-    <section id="contact" aria-labelledby="contact-heading" className="py-24 md:py-32">
+    <section id="contact" aria-labelledby="contact-heading" className="pt-32 pb-24 md:pt-40 md:pb-32">
       <Container>
         <Reveal>
           <div className="rounded-3xl bg-gradient-brand p-px shadow-sm">
@@ -30,9 +30,9 @@ export function Contact() {
                     <span className="inline-flex items-center rounded-full border bg-card px-3 py-1 text-xs font-medium text-muted-foreground shadow-xs">
                       Contact
                     </span>
-                    <h2 id="contact-heading" className="font-heading text-3xl font-semibold sm:text-4xl lg:text-[2.75rem] lg:leading-[1.1]">
+                    <h1 id="contact-heading" className="font-heading text-3xl font-semibold sm:text-4xl lg:text-[2.75rem] lg:leading-[1.1]">
                       {contact.heading}
-                    </h2>
+                    </h1>
                     <p className="max-w-prose text-base text-pretty text-muted-foreground sm:text-lg">{contact.subtext}</p>
                   </div>
 

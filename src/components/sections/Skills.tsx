@@ -9,10 +9,11 @@ export function Skills() {
   const heading = sectionCopy.skills;
 
   return (
-    <section id="skills" aria-labelledby="skills-heading" className="border-y bg-surface py-24 md:py-32">
+    <section id="skills" aria-labelledby="skills-heading" className="pt-32 pb-24 md:pt-40 md:pb-32">
       <Container>
         <Reveal>
           <SectionHeading
+            as="h1"
             id="skills-heading"
             eyebrow={heading.eyebrow}
             title={heading.title}

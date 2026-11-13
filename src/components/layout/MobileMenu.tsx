@@ -1,38 +1,19 @@
 "use client";
 
 import { Download, Menu } from "lucide-react";
-import { useRef, useState, type MouseEvent } from "react";
+import Link from "next/link";
+import { useState } from "react";
 
 import { ThemeToggle } from "@/components/shared/ThemeToggle";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetFooter, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { site } from "@/content/site";
+import { useActivePath } from "@/hooks/useActivePath";
 import { cn } from "@/lib/utils";
 
-type MobileMenuProps = {
-  activeId: string | null;
-};
-
-export function MobileMenu({ activeId }: MobileMenuProps) {
+export function MobileMenu() {
   const [open, setOpen] = useState(false);
-  const pendingHref = useRef<string | null>(null);
-
-  const handleLinkClick = (event: MouseEvent<HTMLAnchorElement>, href: string) => {
-    event.preventDefault();
-    pendingHref.current = href;
-    setOpen(false);
-  };
-
-  const handleCloseAutoFocus = (event: Event) => {
-    const href = pendingHref.current;
-    if (!href) return;
-    event.preventDefault();
-    pendingHref.current = null;
-    const target = document.getElementById(href.slice(1));
-    if (!target) return;
-    window.history.pushState(null, "", href);
-    target.scrollIntoView();
-  };
+  const isActive = useActivePath();
 
   return (
     <Sheet open={open} onOpenChange={setOpen}>
@@ -47,12 +28,7 @@ export function MobileMenu({ activeId }: MobileMenuProps) {
           <Menu className="size-4" aria-hidden />
         </Button>
       </SheetTrigger>
-      <SheetContent
-        side="right"
-        className="w-full max-w-xs gap-0 border-border"
-        aria-describedby={undefined}
-        onCloseAutoFocus={handleCloseAutoFocus}
-      >
+      <SheetContent side="right" className="w-full max-w-xs gap-0 border-border" aria-describedby={undefined}>
         <SheetHeader className="border-b border-border px-5 py-4">
           <SheetTitle className="flex items-center gap-2.5 pr-8 text-base font-semibold">
             <span
@@ -67,23 +43,21 @@ export function MobileMenu({ activeId }: MobileMenuProps) {
         <nav aria-label="Primary" className="px-3 py-4">
           <ul className="flex flex-col gap-1">
             {site.nav.map((link) => {
-              const isActive = activeId === link.href.slice(1);
+              const active = isActive(link.href);
               return (
                 <li key={link.href}>
-                  <a
+                  <Link
                     href={link.href}
-                    onClick={(event) => handleLinkClick(event, link.href)}
-                    aria-current={isActive ? "true" : undefined}
+                    onClick={() => setOpen(false)}
+                    aria-current={active ? "page" : undefined}
                     className={cn(
                       "flex min-h-11 items-center justify-between rounded-xl px-3 text-base font-medium outline-none transition-colors focus-visible:ring-3 focus-visible:ring-ring/50",
-                      isActive
-                        ? "bg-surface text-foreground"
-                        : "text-muted-foreground hover:bg-muted hover:text-foreground",
+                      active ? "bg-surface text-foreground" : "text-muted-foreground hover:bg-muted hover:text-foreground",
                     )}
                   >
                     {link.label}
-                    {isActive ? <span aria-hidden className="size-1.5 rounded-full bg-gradient-brand" /> : null}
-                  </a>
+                    {active ? <span aria-hidden className="size-1.5 rounded-full bg-gradient-brand" /> : null}
+                  </Link>
                 </li>
               );
             })}

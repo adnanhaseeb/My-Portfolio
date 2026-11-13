@@ -1,6 +1,8 @@
 export type NavLink = {
   label: string;
-  href: `#${string}`;
+  href: `/${string}`;
+  title: string;
+  description: string;
 };
 
 export type SiteConfig = {
@@ -26,11 +28,6 @@ export type SectionCopy = {
   description: string;
 };
 
-export type Stat = {
-  value: string;
-  label: string;
-};
-
 export type HeroContent = {
   headlineStart: string;
   headlineHighlight: string;
@@ -38,7 +35,6 @@ export type HeroContent = {
   subtext: string;
   primaryCta: string;
   secondaryCta: string;
-  stats: Stat[];
 };
 
 export type ServiceIcon =

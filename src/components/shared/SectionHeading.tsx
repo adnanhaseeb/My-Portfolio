@@ -8,10 +8,19 @@ type SectionHeadingProps = {
   description?: string;
   id?: string;
   align?: "center" | "left";
+  as?: "h1" | "h2";
   className?: string;
 };
 
-export function SectionHeading({ eyebrow, title, description, id, align = "center", className }: SectionHeadingProps) {
+export function SectionHeading({
+  eyebrow,
+  title,
+  description,
+  id,
+  align = "center",
+  as: Heading = "h2",
+  className,
+}: SectionHeadingProps) {
   return (
     <div
       className={cn(
@@ -23,9 +32,9 @@ export function SectionHeading({ eyebrow, title, description, id, align = "cente
       <span className="inline-flex items-center rounded-full border bg-card px-3 py-1 text-xs font-medium text-muted-foreground shadow-xs">
         {eyebrow}
       </span>
-      <h2 id={id} className="text-3xl font-semibold sm:text-4xl md:text-5xl">
+      <Heading id={id} className="text-3xl font-semibold sm:text-4xl md:text-5xl">
         {title}
-      </h2>
+      </Heading>
       {description ? <p className="text-base text-muted-foreground sm:text-lg">{description}</p> : null}
     </div>
   );
